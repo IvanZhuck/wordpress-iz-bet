@@ -1,0 +1,27 @@
+{
+  "name": "simple-block-theme",
+  "version": "1.0.0",
+  "license": "MIT",
+  "scripts": {
+    "build-scripts": "webpack --mode production",
+    "build-styles": "sass --no-source-map --style=compressed assets/src/styles:assets/build/styles",
+    "eslint": "./node_modules/.bin/eslint assets/src/js/editor.js"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.21.4",
+    "@babel/preset-env": "^7.21.4",
+    "@babel/preset-react": "^7.22.5",
+    "@wordpress/dependency-extraction-webpack-plugin": "^4.21.0",
+    "@wordpress/eslint-plugin": "^14.11.0",
+    "babel-loader": "^9.1.2",
+    "eslint": "^8.46.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "prettier": "^3.0.1",
+    "sass": "^1.60.0",
+    "webpack": "^5.77.0",
+    "webpack-cli": "^5.0.1"
+  },
+  "dependencies": {
+    "@wordpress/icons": "^9.29.0"
+  }
+}

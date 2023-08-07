@@ -1,0 +1,8 @@
+# System
+.DS_Store
+.idea
+.vscode
+.vagrant
+
+# External Dependencies
+node_modules

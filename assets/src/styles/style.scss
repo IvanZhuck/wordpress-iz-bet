@@ -1,0 +1,46 @@
+.iz-tooltip-popover{
+  .components-popover{
+    &__content{
+      min-width: 260px;
+      padding: .8rem;
+    }
+  }
+
+  &__controls{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: .8rem;
+    margin-top: .8rem;
+    border-top: 1px solid rgb(208, 208, 208);
+  }
+
+  .components-base-control{
+    &__field{
+      margin-bottom: 0;
+    }
+  }
+
+  .components-textarea-control{
+    &__input{
+      display: block;
+    }
+  }
+
+  &__controls-remove{
+    &.components-button{
+      &.is-secondary {
+        border-width: 0;
+        box-shadow: none;
+        background: transparent;
+        padding: 0;
+
+        &:hover, &:active, &:focus {
+          border-width: 0;
+          box-shadow: none;
+          background: transparent;
+        }
+      }
+    }
+  }
+}
