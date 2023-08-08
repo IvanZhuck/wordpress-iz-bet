@@ -39,7 +39,7 @@ const IzTooltipEdit = ({
 
 	const toolbarButtonOnClick = () => {
 		if (!isActive) {
-            setTooltipText('');
+			setTooltipText('');
 			setShowPopover(true);
 		} else {
 			setShowPopover(false);
@@ -53,7 +53,7 @@ const IzTooltipEdit = ({
 				applyFormat(value, {
 					type: izTooltipFormatName,
 					attributes: {
-						tooltipText,
+						tooltipText: tooltipText.trim(),
 					},
 				})
 			);
@@ -99,7 +99,10 @@ const IzTooltipEdit = ({
 					>
 						<TextareaControl
 							label={__('Tooltip', 'iz-bet')}
-							help={__('Enter tooltip text and press "Save" button', 'iz-bet')}
+							help={__(
+								'Enter tooltip text and press "Save" button',
+								'iz-bet'
+							)}
 							className="iz-tooltip-popover__text"
 							value={tooltipText}
 							onChange={(newText) => {

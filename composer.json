@@ -1,0 +1,24 @@
+{
+    "name": "ivan_zhuck/iz-block-editor-tooltips",
+    "description": "An easy way to implement tooltip element in the WordPress Block Editor",
+    "type": "wordpress-plugin",
+    "license": "GPLv2 or later",
+    "authors": [
+        {
+            "name": "Ivan Zhuck",
+            "email": "i.a.zhuck@gmail.com",
+            "homepage": "https://izhuck.ru/",
+            "role": "Developer"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": ">=7.4"
+    },
+    "require-dev": {
+        "squizlabs/php_codesniffer": "^3.7"
+    },
+    "scripts": {
+        "phpcs": "./vendor/bin/phpcs"
+    }
+}
