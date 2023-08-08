@@ -69,10 +69,10 @@ function iz_render_head_styles(): void
 {
     echo '<style>
             .iz-tooltip{
-                --text-color: ' . apply_filters('iz_bet_style_text_color', '#247DE0') . ';
-                --border-color: ' . apply_filters('iz_bet_style_border_color', '#247DE0') . ';
-                --tooltip-text-color: ' . apply_filters('iz_bet_style_tooltip_text_color', '#fff') . ';
-                --tooltip-background-color: ' . apply_filters('iz_bet_style_tooltip_background_color:', 'rgba(0, 010, 030, .85)') . ';
+                --text-color: ' . apply_filters('iz_bet_style_text_color', 'var(--wp--preset--color--secondary, #247DE0)') . ';
+                --border-color: ' . apply_filters('iz_bet_style_border_color', 'var(--wp--preset--color--secondary, #247DE0)') . ';
+                --tooltip-text-color: ' . apply_filters('iz_bet_style_tooltip_text_color', 'var(--wp--preset--color--base, #fff)') . ';
+                --tooltip-background-color: ' . apply_filters('iz_bet_style_tooltip_background_color:', 'var(--wp--preset--color--contrast, rgba(0, 010, 030, .85))') . ';
             }
         </style>';
 }
