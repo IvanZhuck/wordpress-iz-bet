@@ -3,7 +3,7 @@
 /**
  * Plugin Name: IZ Block Editor Tooltips
  * Description: An easy way to implement tooltip element in the WordPress Block Editor
- * Version: 0.0.1
+ * Version: 2.0.0
  * Requires at least: 5.9
  * Requires PHP: 7.4
  * Author: Ivan Zhuck
@@ -11,7 +11,6 @@
  * License: GPLv2 or later
  * License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.txt
  * Text Domain: iz-bet
- * Domain Path: /languages
  */
 
 declare(strict_types=1);
