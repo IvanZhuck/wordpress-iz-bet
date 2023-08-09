@@ -1,6 +1,6 @@
 {
-  "name": "simple-block-theme",
-  "version": "2.0.0",
+  "name": "ivan_zhuck/iz-block-editor-tooltips",
+  "version": "2.0.1",
   "license": "MIT",
   "scripts": {
     "build-scripts": "webpack --mode production",
