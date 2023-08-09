@@ -79,3 +79,4 @@ function iz_render_head_styles(): void
 add_action('admin_enqueue_scripts', 'iz_enqueue_editor_assets');
 add_action('enqueue_block_assets', 'iz_enqueue_common_assets');
 add_action('wp_print_styles', 'iz_render_head_styles');
+add_action('admin_head', 'iz_render_head_styles');
