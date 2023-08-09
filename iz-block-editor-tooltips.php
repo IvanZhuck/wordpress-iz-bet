@@ -30,7 +30,7 @@ if (!defined('IZ_BET_PLUGIN_DIR_PATH')) {
 /**
  * Enqueues admin assets
  */
-function iz_enqueue_admin_assets(): void
+function iz_enqueue_editor_assets(): void
 {
     $editorScriptUrl = IZ_BET_PLUGIN_DIR_URL . 'assets/build/js/editor.js';
     $editorScriptAssetPath = IZ_BET_PLUGIN_DIR_PATH . 'assets/build/js/editor.asset.json';
@@ -76,8 +76,6 @@ function iz_render_head_styles(): void
         </style>';
 }
 
-add_action('admin_enqueue_scripts', 'iz_enqueue_admin_assets');
-add_action('admin_enqueue_scripts', 'iz_enqueue_common_assets');
-add_action('wp_enqueue_scripts', 'iz_enqueue_common_assets');
-add_action('wp_head', 'iz_render_head_styles');
-add_action('admin_head', 'iz_render_head_styles');
+add_action('admin_enqueue_scripts', 'iz_enqueue_editor_assets');
+add_action('enqueue_block_assets', 'iz_enqueue_common_assets');
+add_action('wp_print_styles', 'iz_render_head_styles');
