@@ -46,6 +46,12 @@ class Assets
      */
     public function enqueueSettingsPageAssets(): void
     {
+        $currentPageId = get_current_screen()->id;
+
+        if ($currentPageId !== 'settings_page_iz-bet-settings') {
+            return;
+        }
+
         $settingsPageScriptUrl = IZ_BET_PLUGIN_DIR_URL . 'assets/build/js/settings.js';
         $settingsPageScriptAssetPath = IZ_BET_PLUGIN_DIR_PATH . 'assets/build/js/settings.asset.json';
 
