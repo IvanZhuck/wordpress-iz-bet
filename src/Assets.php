@@ -7,14 +7,15 @@ namespace IzBet;
 /**
  * Manages CSS and JS assets
  */
-final class Assets
+class Assets
 {
     public function __construct()
     {
-        add_action('admin_enqueue_scripts', 'enqueueEditorAssets');
-        add_action('enqueue_block_assets', 'enqueueCommonAssets');
-        add_action('wp_print_styles', 'renderHeadStyles');
-        add_action('admin_head', 'renderHeadStyles');
+        add_action('admin_enqueue_scripts', [$this, 'enqueueEditorAssets']);
+        add_action('admin_enqueue_scripts', [$this, 'enqueueSettingsPageAssets']);
+        add_action('enqueue_block_assets', [$this, 'enqueueCommonAssets']);
+        add_action('wp_print_styles', [$this, 'renderHeadStyles']);
+        add_action('admin_head', [$this, 'renderHeadStyles']);
     }
 
     /**
@@ -41,6 +42,27 @@ final class Assets
     }
 
     /**
+     * Enqueues settings page assets
+     */
+    public function enqueueSettingsPageAssets(): void
+    {
+        $settingsPageScriptUrl = IZ_BET_PLUGIN_DIR_URL . 'assets/build/js/settings.js';
+        $settingsPageScriptAssetPath = IZ_BET_PLUGIN_DIR_PATH . 'assets/build/js/settings.asset.json';
+
+        $settingsPageScriptMeta = json_decode(file_get_contents($settingsPageScriptAssetPath));
+        $settingsPageScriptMeta->dependencies[] = 'wp-color-picker';
+
+        wp_enqueue_script(
+            'iz-bet-settings',
+            $settingsPageScriptUrl,
+            $settingsPageScriptMeta->dependencies,
+            $settingsPageScriptMeta->version
+        );
+
+        wp_enqueue_style('wp-color-picker');
+    }
+
+    /**
      * Enqueues common (frontend and backend) assets
      */
     public function enqueueCommonAssets(): void
@@ -58,10 +80,10 @@ final class Assets
     {
         echo '<style>
             .iz-tooltip{
-                --text-color: ' . apply_filters('iz_bet_style_text_color', 'var(--wp--preset--color--secondary, #247DE0)') . ';
-                --border-color: ' . apply_filters('iz_bet_style_border_color', 'var(--wp--preset--color--secondary, #247DE0)') . ';
-                --tooltip-text-color: ' . apply_filters('iz_bet_style_tooltip_text_color', 'var(--wp--preset--color--base, #fff)') . ';
-                --tooltip-background-color: ' . apply_filters('iz_bet_style_tooltip_background_color:', 'var(--wp--preset--color--contrast, rgba(0, 010, 030, .85))') . ';
+                --text-color: ' . apply_filters('iz_bet_style_text_color', IZ_BET_PLUGIN_STYLE_DEFAULT_TEXT_COLOR) . ';
+                --border-color: ' . apply_filters('iz_bet_style_border_color', IZ_BET_PLUGIN_STYLE_DEFAULT_BORDER_COLOR) . ';
+                --tooltip-text-color: ' . apply_filters('iz_bet_style_tooltip_text_color', IZ_BET_PLUGIN_STYLE_DEFAULT_TOOLTIP_TEXT_COLOR) . ';
+                --tooltip-background-color: ' . apply_filters('iz_bet_style_tooltip_background_color', IZ_BET_PLUGIN_STYLE_DEFAULT_TOOLTIP_BG_COLOR) . ';
             }
         </style>';
     }

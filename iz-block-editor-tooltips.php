@@ -27,6 +27,22 @@ if (!defined('IZ_BET_PLUGIN_DIR_PATH')) {
     define('IZ_BET_PLUGIN_DIR_PATH', plugin_dir_path(__FILE__));
 }
 
+if (!defined('IZ_BET_PLUGIN_STYLE_DEFAULT_TEXT_COLOR')) {
+    define('IZ_BET_PLUGIN_STYLE_DEFAULT_TEXT_COLOR', '#247DE0');
+}
+
+if (!defined('IZ_BET_PLUGIN_STYLE_DEFAULT_BORDER_COLOR')) {
+    define('IZ_BET_PLUGIN_STYLE_DEFAULT_BORDER_COLOR', '#247DE0');
+}
+
+if (!defined('IZ_BET_PLUGIN_STYLE_DEFAULT_TOOLTIP_TEXT_COLOR')) {
+    define('IZ_BET_PLUGIN_STYLE_DEFAULT_TOOLTIP_TEXT_COLOR', '#FFFFFF');
+}
+
+if (!defined('IZ_BET_PLUGIN_STYLE_DEFAULT_TOOLTIP_BG_COLOR')) {
+    define('IZ_BET_PLUGIN_STYLE_DEFAULT_TOOLTIP_BG_COLOR', 'rgba(0, 010, 030, .85)');
+}
+
 require_once 'vendor/autoload.php';
 
 new \IzBet\Main();
