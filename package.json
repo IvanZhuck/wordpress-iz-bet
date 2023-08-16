@@ -1,11 +1,13 @@
 {
   "name": "iz-block-editor-tooltips",
-  "version": "2.0.1",
+  "version": "3.0.0",
   "license": "MIT",
   "scripts": {
     "build-scripts": "webpack --mode production",
     "build-styles": "sass --no-source-map --style=compressed assets/src/styles:assets/build/styles",
-    "eslint": "./node_modules/.bin/eslint assets/src/js/editor.js"
+    "eslint": "./node_modules/.bin/eslint assets/src/js/editor.js assets/src/js/settings.js",
+    "phpcs": "./vendor/bin/phpcs",
+    "phpcbf": "./vendor/bin/phpcbf"
   },
   "devDependencies": {
     "@babel/core": "^7.21.4",

@@ -2,7 +2,10 @@ const path = require('path');
 const DependencyExtractionWebpackPlugin = require( '@wordpress/dependency-extraction-webpack-plugin' );
 
 module.exports = {
-    entry: {'./assets/build/js/editor.js': './assets/src/js/editor.js'},
+    entry: {
+        './assets/build/js/editor.js': './assets/src/js/editor.js',
+        './assets/build/js/settings.js': './assets/src/js/settings.js'
+    },
     output: {
         path: path.resolve(__dirname, ''),
         filename: '[name]',
