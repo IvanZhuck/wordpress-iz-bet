@@ -12,6 +12,11 @@
         }
     ],
     "minimum-stability": "stable",
+    "autoload": {
+        "psr-4": {
+            "IzBet\\": "src/"
+        }
+    },
     "require": {
         "php": ">=7.4"
     },
