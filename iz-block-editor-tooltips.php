@@ -27,56 +27,6 @@ if (!defined('IZ_BET_PLUGIN_DIR_PATH')) {
     define('IZ_BET_PLUGIN_DIR_PATH', plugin_dir_path(__FILE__));
 }
 
-/**
- * Enqueues admin assets
- */
-function iz_enqueue_editor_assets(): void
-{
-    $editorScriptUrl = IZ_BET_PLUGIN_DIR_URL . 'assets/build/js/editor.js';
-    $editorScriptAssetPath = IZ_BET_PLUGIN_DIR_PATH . 'assets/build/js/editor.asset.json';
+require_once 'vendor/autoload.php';
 
-    $editorStyleUrl = IZ_BET_PLUGIN_DIR_URL . 'assets/build/styles/editor.css';
-    $editorStylePath = IZ_BET_PLUGIN_DIR_PATH . 'assets/build/styles/editor.css';
-
-    $editorScriptMeta = json_decode(file_get_contents($editorScriptAssetPath));
-
-    wp_enqueue_script(
-        'iz-bet-editor',
-        $editorScriptUrl,
-        $editorScriptMeta->dependencies,
-        $editorScriptMeta->version
-    );
-
-    wp_enqueue_style('iz-bet-editor', $editorStyleUrl, [], filemtime($editorStylePath));
-}
-
-/**
- * Enqueues common (frontend and backend) assets
- */
-function iz_enqueue_common_assets(): void
-{
-    $styleUrl = IZ_BET_PLUGIN_DIR_URL . 'assets/build/styles/styles.css';
-    $stylePath = IZ_BET_PLUGIN_DIR_PATH . 'assets/build/styles/styles.css';
-
-    wp_enqueue_style('iz-bet-styles', $styleUrl, [], filemtime($stylePath));
-}
-
-/**
- * Prints CSS variables to page header
- */
-function iz_render_head_styles(): void
-{
-    echo '<style>
-            .iz-tooltip{
-                --text-color: ' . apply_filters('iz_bet_style_text_color', 'var(--wp--preset--color--secondary, #247DE0)') . ';
-                --border-color: ' . apply_filters('iz_bet_style_border_color', 'var(--wp--preset--color--secondary, #247DE0)') . ';
-                --tooltip-text-color: ' . apply_filters('iz_bet_style_tooltip_text_color', 'var(--wp--preset--color--base, #fff)') . ';
-                --tooltip-background-color: ' . apply_filters('iz_bet_style_tooltip_background_color:', 'var(--wp--preset--color--contrast, rgba(0, 010, 030, .85))') . ';
-            }
-        </style>';
-}
-
-add_action('admin_enqueue_scripts', 'iz_enqueue_editor_assets');
-add_action('enqueue_block_assets', 'iz_enqueue_common_assets');
-add_action('wp_print_styles', 'iz_render_head_styles');
-add_action('admin_head', 'iz_render_head_styles');
+new \IzBet\Main();
