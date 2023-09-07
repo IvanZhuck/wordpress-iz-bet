@@ -2,8 +2,8 @@
 Contributors: ivanzhuck
 Tags: tooltips, block editor tooltips, gutenberg tooltips, richtext tooltips
 Requires at least: 5.9
-Tested up to: 6.3
-Stable tag: 3.0.0
+Tested up to: 6.3.1
+Stable tag: 3.0.1
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
