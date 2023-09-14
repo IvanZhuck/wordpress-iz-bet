@@ -18,6 +18,17 @@ add_filter('iz_bet_style_tooltip_text_color', function() { return '#fff'; });
 add_filter('iz_bet_style_tooltip_background_color', function() { return 'rgba(0, 010, 030, .85)'; });
 ```
 
+## Building plugin from the development version
+
+- Install PHP dependencies: `composer install`
+- Install JS dependencies: `yarn install` or `npm install`
+- Compile styles: `yarn run build-styles` or `npm run build-styles`
+- Compile JS scripts: `yarn run build-scripts` or `npm run build-scripts`
+
+## Checking code styles
+- Run ESLint: `yarn run eslint` or `npm run eslint`
+- Run PHP CodeSniffer: `composer run-script phpcs` or `yarn run phpcs` or `npm run phpcs`
+
 ## Installation
 
 1. Upload `iz-block-editor-tooltips` folder to the `/wp-content/plugins/` directory.
