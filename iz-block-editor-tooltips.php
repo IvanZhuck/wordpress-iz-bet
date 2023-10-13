@@ -43,6 +43,6 @@ if (!defined('IZ_BET_PLUGIN_STYLE_DEFAULT_TOOLTIP_BG_COLOR')) {
     define('IZ_BET_PLUGIN_STYLE_DEFAULT_TOOLTIP_BG_COLOR', 'rgba(0, 010, 030, .85)');
 }
 
-require_once 'vendor/autoload.php';
+require_once(realpath(__DIR__ . '/vendor/autoload.php'));
 
 new \IzBet\Main();
