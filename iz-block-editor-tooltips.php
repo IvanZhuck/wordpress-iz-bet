@@ -3,7 +3,7 @@
 /**
  * Plugin Name: IZ Block Editor Tooltips
  * Description: An easy way to implement tooltip element in the WordPress Block Editor
- * Version: 3.0.1
+ * Version: 3.0.3
  * Requires at least: 5.9
  * Requires PHP: 7.4
  * Author: Ivan Zhuck
@@ -43,6 +43,6 @@ if (!defined('IZ_BET_PLUGIN_STYLE_DEFAULT_TOOLTIP_BG_COLOR')) {
     define('IZ_BET_PLUGIN_STYLE_DEFAULT_TOOLTIP_BG_COLOR', 'rgba(0, 010, 030, .85)');
 }
 
-require_once 'vendor/autoload.php';
+require_once(realpath(__DIR__ . '/vendor/autoload.php'));
 
 new \IzBet\Main();
