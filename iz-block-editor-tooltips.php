@@ -10,7 +10,7 @@
  * Author URI: https://izhuck.ru/
  * License: GPLv2 or later
  * License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.txt
- * Text Domain: izbet
+ * Text Domain: iz-block-editor-tooltips
  */
 
 declare(strict_types=1);

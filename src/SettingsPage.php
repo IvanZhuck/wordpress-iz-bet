@@ -52,7 +52,7 @@ class SettingsPage
 
         add_settings_section(
             'izbet-settings-section-colors',
-            __('Colors', 'izbet'),
+            __('Colors', 'iz-block-editor-tooltips'),
             [$this, 'izbetSettingsSectionColorsCallback'],
             'izbet-settings'
         );
@@ -93,8 +93,8 @@ class SettingsPage
     {
         add_submenu_page(
             'options-general.php',
-            __('IZ Block Editor Tooltips Settings', 'izbet'),
-            __('IZ BET Setting', 'izbet'),
+            __('IZ Block Editor Tooltips Settings', 'iz-block-editor-tooltips'),
+            __('IZ BET Setting', 'iz-block-editor-tooltips'),
             'manage_options',
             'izbet-settings',
             [$this, 'renderSettingsPageContent']
@@ -120,7 +120,7 @@ class SettingsPage
 
         add_settings_field(
             'izbet-style-text-color-field',
-            __('Text Color', 'izbet'),
+            __('Text Color', 'iz-block-editor-tooltips'),
             [$this, 'renderColorField'],
             'izbet-settings',
             'izbet-settings-section-colors',
@@ -132,7 +132,7 @@ class SettingsPage
 
         add_settings_field(
             'izbet-style-border-color-field',
-            __('Border Color', 'izbet'),
+            __('Border Color', 'iz-block-editor-tooltips'),
             [$this, 'renderColorField'],
             'izbet-settings',
             'izbet-settings-section-colors',
@@ -144,7 +144,7 @@ class SettingsPage
 
         add_settings_field(
             'izbet-style-tooltip-text-color-field',
-            __('Tooltip Text Color', 'izbet'),
+            __('Tooltip Text Color', 'iz-block-editor-tooltips'),
             [$this, 'renderColorField'],
             'izbet-settings',
             'izbet-settings-section-colors',
@@ -156,7 +156,7 @@ class SettingsPage
 
         add_settings_field(
             'izbet-style-tooltip-background-color-field',
-            __('Tooltip Background Color', 'izbet'),
+            __('Tooltip Background Color', 'iz-block-editor-tooltips'),
             [$this, 'renderColorField'],
             'izbet-settings',
             'izbet-settings-section-colors',

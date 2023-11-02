@@ -87,7 +87,7 @@ const IzbetTooltipEdit = ({
 			<ToolbarGroup>
 				<ToolbarButton
 					icon={commentContent}
-					title={__('Tooltip', 'izbet')}
+					title={__('Tooltip', 'iz-block-editor-tooltips')}
 					isActive={isActive}
 					onClick={toolbarButtonOnClick}
 				/>
@@ -98,10 +98,10 @@ const IzbetTooltipEdit = ({
 						onClose={() => setShowPopover(false)}
 					>
 						<TextareaControl
-							label={__('Tooltip', 'izbet')}
+							label={__('Tooltip', 'iz-block-editor-tooltips')}
 							help={__(
 								'Enter tooltip text and press "Save" button',
-								'izbet'
+								'iz-block-editor-tooltips'
 							)}
 							className="izbet-tooltip-popover__text"
 							value={tooltipText}
@@ -115,13 +115,13 @@ const IzbetTooltipEdit = ({
 								onClick={removeTooltip}
 								className="izbet-tooltip-popover__controls-remove components-button is-secondary is-destructive"
 							>
-								{__('Remove', 'izbet')}
+								{__('Remove', 'iz-block-editor-tooltips')}
 							</Button>
 							<Button
 								onClick={saveTooltipText}
 								className="izbet-tooltip-popover__controls-save components-button is-primary"
 							>
-								{__('Save', 'izbet')}
+								{__('Save', 'iz-block-editor-tooltips')}
 							</Button>
 						</div>
 					</Popover>
@@ -132,7 +132,7 @@ const IzbetTooltipEdit = ({
 };
 
 registerFormatType(izbetTooltipFormatName, {
-	title: __('Tooltip', 'izbet'),
+	title: __('Tooltip', 'iz-block-editor-tooltips'),
 	tagName: 'span',
 	className: 'izbet-tooltip',
 	attributes: {
