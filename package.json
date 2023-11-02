@@ -1,6 +1,6 @@
 {
   "name": "iz-block-editor-tooltips",
-  "version": "3.0.1",
+  "version": "3.1.0",
   "license": "MIT",
   "scripts": {
     "build-scripts": "webpack --mode production",
