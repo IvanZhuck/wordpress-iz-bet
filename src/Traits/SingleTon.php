@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace IzBet\Traits;
+namespace Izbet\Traits;
 
 trait SingleTon
 {

@@ -23,9 +23,9 @@ import { __ } from '@wordpress/i18n';
  */
 import { commentContent } from '@wordpress/icons';
 
-const izTooltipFormatName = 'iz-format/tooltip';
+const izbetTooltipFormatName = 'izbet-format/tooltip';
 
-const IzTooltipEdit = ({
+const IzbetTooltipEdit = ({
 	isActive,
 	activeAttributes,
 	value,
@@ -43,7 +43,7 @@ const IzTooltipEdit = ({
 			setShowPopover(true);
 		} else {
 			setShowPopover(false);
-			onChange(removeFormat(value, izTooltipFormatName));
+			onChange(removeFormat(value, izbetTooltipFormatName));
 		}
 	};
 
@@ -51,21 +51,21 @@ const IzTooltipEdit = ({
 		if (tooltipText.length) {
 			onChange(
 				applyFormat(value, {
-					type: izTooltipFormatName,
+					type: izbetTooltipFormatName,
 					attributes: {
 						tooltipText: tooltipText.trim(),
 					},
 				})
 			);
 		} else {
-			onChange(removeFormat(value, izTooltipFormatName));
+			onChange(removeFormat(value, izbetTooltipFormatName));
 		}
 
 		setShowPopover(false);
 	};
 
 	const removeTooltip = () => {
-		onChange(removeFormat(value, izTooltipFormatName));
+		onChange(removeFormat(value, izbetTooltipFormatName));
 		setShowPopover(false);
 	};
 
@@ -87,41 +87,41 @@ const IzTooltipEdit = ({
 			<ToolbarGroup>
 				<ToolbarButton
 					icon={commentContent}
-					title={__('Tooltip', 'iz-bet')}
+					title={__('Tooltip', 'iz-block-editor-tooltips')}
 					isActive={isActive}
 					onClick={toolbarButtonOnClick}
 				/>
 				{showPopover && (
 					<Popover
 						anchorRef={anchorRef}
-						className="iz-tooltip-popover"
+						className="izbet-tooltip-popover"
 						onClose={() => setShowPopover(false)}
 					>
 						<TextareaControl
-							label={__('Tooltip', 'iz-bet')}
+							label={__('Tooltip', 'iz-block-editor-tooltips')}
 							help={__(
 								'Enter tooltip text and press "Save" button',
-								'iz-bet'
+								'iz-block-editor-tooltips'
 							)}
-							className="iz-tooltip-popover__text"
+							className="izbet-tooltip-popover__text"
 							value={tooltipText}
 							onChange={(newText) => {
 								setTypingInProgress(true);
 								setTooltipText(newText);
 							}}
 						/>
-						<div className="iz-tooltip-popover__controls">
+						<div className="izbet-tooltip-popover__controls">
 							<Button
 								onClick={removeTooltip}
-								className="iz-tooltip-popover__controls-remove components-button is-secondary is-destructive"
+								className="izbet-tooltip-popover__controls-remove components-button is-secondary is-destructive"
 							>
-								{__('Remove', 'iz-bet')}
+								{__('Remove', 'iz-block-editor-tooltips')}
 							</Button>
 							<Button
 								onClick={saveTooltipText}
-								className="iz-tooltip-popover__controls-save components-button is-primary"
+								className="izbet-tooltip-popover__controls-save components-button is-primary"
 							>
-								{__('Save', 'iz-bet')}
+								{__('Save', 'iz-block-editor-tooltips')}
 							</Button>
 						</div>
 					</Popover>
@@ -131,12 +131,12 @@ const IzTooltipEdit = ({
 	);
 };
 
-registerFormatType(izTooltipFormatName, {
-	title: __('Tooltip', 'iz-bet'),
+registerFormatType(izbetTooltipFormatName, {
+	title: __('Tooltip', 'iz-block-editor-tooltips'),
 	tagName: 'span',
-	className: 'iz-tooltip',
+	className: 'izbet-tooltip',
 	attributes: {
 		tooltipText: 'aria-label',
 	},
-	edit: IzTooltipEdit,
+	edit: IzbetTooltipEdit,
 });

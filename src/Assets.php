@@ -2,7 +2,9 @@
 
 declare(strict_types=1);
 
-namespace IzBet;
+namespace Izbet;
+
+use stdClass;
 
 /**
  * Manages CSS and JS assets
@@ -23,22 +25,22 @@ class Assets
      */
     public function enqueueEditorAssets(): void
     {
-        $editorScriptUrl = IZ_BET_PLUGIN_DIR_URL . 'assets/build/js/editor.js';
-        $editorScriptAssetPath = IZ_BET_PLUGIN_DIR_PATH . 'assets/build/js/editor.asset.json';
+        $editorScriptUrl = IZBET_PLUGIN_DIR_URL . 'assets/build/js/editor.js';
+        $editorScriptAssetPath = IZBET_PLUGIN_DIR_PATH . 'assets/build/js/editor.asset.json';
 
-        $editorStyleUrl = IZ_BET_PLUGIN_DIR_URL . 'assets/build/styles/editor.css';
-        $editorStylePath = IZ_BET_PLUGIN_DIR_PATH . 'assets/build/styles/editor.css';
+        $editorStyleUrl = IZBET_PLUGIN_DIR_URL . 'assets/build/styles/editor.css';
+        $editorStylePath = IZBET_PLUGIN_DIR_PATH . 'assets/build/styles/editor.css';
 
-        $editorScriptMeta = json_decode(file_get_contents($editorScriptAssetPath));
+        $editorScriptMeta = $this->loadJsonAssetFile($editorScriptAssetPath);
 
         wp_enqueue_script(
-            'iz-bet-editor',
+            'izbet-editor',
             $editorScriptUrl,
             $editorScriptMeta->dependencies,
             $editorScriptMeta->version
         );
 
-        wp_enqueue_style('iz-bet-editor', $editorStyleUrl, [], filemtime($editorStylePath));
+        wp_enqueue_style('izbet-editor', $editorStyleUrl, [], filemtime($editorStylePath));
     }
 
     /**
@@ -48,18 +50,18 @@ class Assets
     {
         $currentPageId = get_current_screen()->id;
 
-        if ($currentPageId !== 'settings_page_iz-bet-settings') {
+        if ($currentPageId !== 'settings_page_izbet-settings') {
             return;
         }
 
-        $settingsPageScriptUrl = IZ_BET_PLUGIN_DIR_URL . 'assets/build/js/settings.js';
-        $settingsPageScriptAssetPath = IZ_BET_PLUGIN_DIR_PATH . 'assets/build/js/settings.asset.json';
+        $settingsPageScriptUrl = IZBET_PLUGIN_DIR_URL . 'assets/build/js/settings.js';
+        $settingsPageScriptAssetPath = IZBET_PLUGIN_DIR_PATH . 'assets/build/js/settings.asset.json';
 
-        $settingsPageScriptMeta = json_decode(file_get_contents($settingsPageScriptAssetPath));
+        $settingsPageScriptMeta = $this->loadJsonAssetFile($settingsPageScriptAssetPath);
         $settingsPageScriptMeta->dependencies[] = 'wp-color-picker';
 
         wp_enqueue_script(
-            'iz-bet-settings',
+            'izbet-settings',
             $settingsPageScriptUrl,
             $settingsPageScriptMeta->dependencies,
             $settingsPageScriptMeta->version
@@ -73,10 +75,10 @@ class Assets
      */
     public function enqueueCommonAssets(): void
     {
-        $styleUrl = IZ_BET_PLUGIN_DIR_URL . 'assets/build/styles/styles.css';
-        $stylePath = IZ_BET_PLUGIN_DIR_PATH . 'assets/build/styles/styles.css';
+        $styleUrl = IZBET_PLUGIN_DIR_URL . 'assets/build/styles/styles.css';
+        $stylePath = IZBET_PLUGIN_DIR_PATH . 'assets/build/styles/styles.css';
 
-        wp_enqueue_style('iz-bet-styles', $styleUrl, [], filemtime($stylePath));
+        wp_enqueue_style('izbet-styles', $styleUrl, [], filemtime($stylePath));
     }
 
     /**
@@ -85,12 +87,24 @@ class Assets
     public function renderHeadStyles(): void
     {
         echo '<style>
-            .iz-tooltip{
-                --text-color: ' . apply_filters('iz_bet_style_text_color', IZ_BET_PLUGIN_STYLE_DEFAULT_TEXT_COLOR) . ';
-                --border-color: ' . apply_filters('iz_bet_style_border_color', IZ_BET_PLUGIN_STYLE_DEFAULT_BORDER_COLOR) . ';
-                --tooltip-text-color: ' . apply_filters('iz_bet_style_tooltip_text_color', IZ_BET_PLUGIN_STYLE_DEFAULT_TOOLTIP_TEXT_COLOR) . ';
-                --tooltip-background-color: ' . apply_filters('iz_bet_style_tooltip_background_color', IZ_BET_PLUGIN_STYLE_DEFAULT_TOOLTIP_BG_COLOR) . ';
+            .izbet-tooltip{
+                --text-color: ' . esc_html(apply_filters('izbet_style_text_color', IZBET_PLUGIN_STYLE_DEFAULT_TEXT_COLOR)) . ';
+                --border-color: ' . esc_html(apply_filters('izbet_style_border_color', IZBET_PLUGIN_STYLE_DEFAULT_BORDER_COLOR)) . ';
+                --tooltip-text-color: ' . esc_html(apply_filters('izbet_style_tooltip_text_color', IZBET_PLUGIN_STYLE_DEFAULT_TOOLTIP_TEXT_COLOR)) . ';
+                --tooltip-background-color: ' . esc_html(apply_filters('izbet_style_tooltip_background_color', IZBET_PLUGIN_STYLE_DEFAULT_TOOLTIP_BG_COLOR)) . ';
             }
         </style>';
+    }
+
+    /**
+     * Load an asset from a local json file
+     */
+    private function loadJsonAssetFile(string $filePath): stdClass
+    {
+        ob_start();
+        include $filePath;
+        $json = ob_get_clean();
+
+        return json_decode($json);
     }
 }
