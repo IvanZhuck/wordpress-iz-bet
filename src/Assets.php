@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Izbet;
 
+use stdClass;
+
 /**
  * Manages CSS and JS assets
  */
@@ -29,7 +31,7 @@ class Assets
         $editorStyleUrl = IZBET_PLUGIN_DIR_URL . 'assets/build/styles/editor.css';
         $editorStylePath = IZBET_PLUGIN_DIR_PATH . 'assets/build/styles/editor.css';
 
-        $editorScriptMeta = json_decode(file_get_contents($editorScriptAssetPath));
+        $editorScriptMeta = $this->loadJsonAssetFile($editorScriptAssetPath);
 
         wp_enqueue_script(
             'izbet-editor',
@@ -55,7 +57,7 @@ class Assets
         $settingsPageScriptUrl = IZBET_PLUGIN_DIR_URL . 'assets/build/js/settings.js';
         $settingsPageScriptAssetPath = IZBET_PLUGIN_DIR_PATH . 'assets/build/js/settings.asset.json';
 
-        $settingsPageScriptMeta = json_decode(file_get_contents($settingsPageScriptAssetPath));
+        $settingsPageScriptMeta = $this->loadJsonAssetFile($settingsPageScriptAssetPath);
         $settingsPageScriptMeta->dependencies[] = 'wp-color-picker';
 
         wp_enqueue_script(
@@ -92,5 +94,17 @@ class Assets
                 --tooltip-background-color: ' . esc_html(apply_filters('izbet_style_tooltip_background_color', IZBET_PLUGIN_STYLE_DEFAULT_TOOLTIP_BG_COLOR)) . ';
             }
         </style>';
+    }
+
+    /**
+     * Load an asset from a local json file
+     */
+    private function loadJsonAssetFile(string $filePath): stdClass
+    {
+        ob_start();
+        include $filePath;
+        $json = ob_get_clean();
+
+        return json_decode($json);
     }
 }
