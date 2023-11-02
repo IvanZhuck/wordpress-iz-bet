@@ -2,8 +2,8 @@
 Contributors: ivanzhuck
 Tags: tooltips, block editor tooltips, gutenberg tooltips, richtext tooltips
 Requires at least: 5.9
-Tested up to: 6.3.1
-Stable tag: 3.1.0
+Tested up to: 6.3.2
+Stable tag: 3.1.1
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -23,6 +23,11 @@ add_filter('iz_bet_style_border_color', function() { return '#247DE0'; });
 add_filter('iz_bet_style_tooltip_text_color', function() { return '#fff'; });
 add_filter('iz_bet_style_tooltip_background_color', function() { return 'rgba(0, 010, 030, .85)'; });
 `
+
+= How to contribute =
+
+If you want to help me develop the plugin please visit its repository on GitHub: [https://github.com/IvanZhuck/wordpress-iz-bet](https://github.com/IvanZhuck/wordpress-iz-bet)
+The repository contains the source code and tools for development.
 
 == Installation ==
 
