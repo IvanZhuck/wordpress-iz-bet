@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace IzBet;
+namespace Izbet;
 
-use IzBet\Traits\SingleTon;
+use Izbet\Traits\SingleTon;
 
 /**
  * Renders php templates from files
@@ -22,12 +22,12 @@ class Template
 
         ob_start();
 
-        $templateFilePath = IZ_BET_PLUGIN_DIR_PATH . 'views/' . $templateFile . '.php';
+        $templateFilePath = IZBET_PLUGIN_DIR_PATH . 'views/' . $templateFile . '.php';
 
         if (file_exists($templateFilePath)) {
             require $templateFilePath;
         } else {
-            echo __('Template not found!', 'iz-bet');
+            echo __('Template not found!', 'izbet');
         }
 
         return (string) ob_get_clean();

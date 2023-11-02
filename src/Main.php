@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace IzBet;
+namespace Izbet;
 
 /**
  * The main class inits all parts of the plugin
