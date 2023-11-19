@@ -27,7 +27,7 @@ class Template
         if (file_exists($templateFilePath)) {
             require $templateFilePath;
         } else {
-            echo __('Template not found!', 'iz-block-editor-tooltips');
+            echo esc_html__('Template not found!', 'iz-block-editor-tooltips');
         }
 
         return (string) ob_get_clean();
