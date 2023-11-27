@@ -38,6 +38,60 @@ class Template
      */
     public function render(string $templateFile, array $args = []): void
     {
-        echo $this->compile($templateFile, $args);
+        echo wp_kses(
+            $this->compile($templateFile, $args),
+            [
+                'h1' => [],
+                'h2' => [],
+                'div' => [
+                    'id' => true,
+                    'class' => true,
+                    'tabindex' => true,
+                    'aria-label' => true,
+                ],
+                'span' => [
+                    'class' => true,
+                    'style' => true,
+                ],
+                'p' => [
+                    'id' => true,
+                    'class' => true,
+                ],
+                'table' => [
+                    'id' => true,
+                    'class' => true,
+                    'role' => true,
+                ],
+                'tbody' => [],
+                'tr' => [],
+                'th' => [
+                    'scope' => true,
+                ],
+                'td' => [
+                    'scope' => true,
+                ],
+                'form' => [
+                    'action' => true,
+                    'method' => true,
+                ],
+                'label' => [
+                    'for' => true,
+                ],
+                'input' => [
+                    'id' => true,
+                    'class' => true,
+                    'type' => true,
+                    'name' => true,
+                    'value' => true,
+                    'data-alpha-enabled' => true,
+                ],
+                'button' => [
+                    'type' => true,
+                    'class' => true,
+                    'aria-expanded' => true,
+                    'style' => true,
+                ],
+            ]
+        );
     }
 }
