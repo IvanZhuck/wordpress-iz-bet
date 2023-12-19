@@ -1,0 +1,31 @@
+# Files
+/.DS_Store
+/.babelrc
+/.coveralls.yml
+/.distignore
+/.editorconfig
+/.eslintrc
+/.eslintrc.json
+/.gitignore
+/.phpcs.cache
+/.phpunit.result.cache
+/.pnp.*
+/.yarnrc.yml
+/Thumbs.db
+/README.MD
+/composer.json
+/composer.lock
+/package.json
+/phpcs.xml
+/webpack.config.js
+/yarn.lock
+
+# Directories
+/.git
+/.github
+/.idea
+/.make
+/.wordpress-org
+/.yarn
+/node_modules
+/assets/src
