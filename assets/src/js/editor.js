@@ -6,7 +6,7 @@ import {
 	registerFormatType,
 	removeFormat,
 	applyFormat,
-	useAnchorRef,
+	useAnchor,
 } from '@wordpress/rich-text';
 import { BlockControls } from '@wordpress/block-editor';
 import {
@@ -35,7 +35,7 @@ const IzbetTooltipEdit = ({
 	const [tooltipText, setTooltipText] = useState('');
 	const [showPopover, setShowPopover] = useState(false);
 	const [typingInProgress, setTypingInProgress] = useState(false);
-	const anchorRef = useAnchorRef({ ref: contentRef, value });
+	const anchorRef = useAnchor({ editableContentElement: contentRef.current });
 
 	const toolbarButtonOnClick = () => {
 		if (!isActive) {
@@ -93,7 +93,7 @@ const IzbetTooltipEdit = ({
 				/>
 				{showPopover && (
 					<Popover
-						anchorRef={anchorRef}
+						anchor={anchorRef}
 						className="izbet-tooltip-popover"
 						onClose={() => setShowPopover(false)}
 					>
