@@ -3,7 +3,7 @@ Contributors: ivanzhuck
 Tags: tooltips, block editor tooltips, gutenberg tooltips, richtext tooltips
 Requires at least: 5.9
 Tested up to: 6.5
-Stable tag: 3.2.3
+Stable tag: 3.3.0
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -44,6 +44,11 @@ If you want to help me develop the plugin please visit its repository on GitHub:
 3. Visit "Settings" -> "IZ BET Setting" to set up tooltip colors.
 
 == Changelog ==
+
+= 3.3.0 =
+* Tested with WordPress 6.5
+* Fixed tooltip editor popover position
+* Fixed new lines inside tooltip content
 
 = 3.2.3 =
 * Updated readme.txt
