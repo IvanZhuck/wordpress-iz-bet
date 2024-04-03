@@ -27,6 +27,7 @@
       padding: .6rem;
       border-radius: 5px;
       z-index: 100;
+      white-space: pre-wrap;
 
       @media screen and (max-width: 768px) {
         position: fixed;
