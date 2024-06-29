@@ -41,6 +41,18 @@ class SettingsPage
         add_filter('izbet_style_tooltip_background_color', function () use ($options) {
             return $options['style_tooltip_background_color'] ?? IZBET_PLUGIN_STYLE_DEFAULT_TOOLTIP_BG_COLOR;
         }, 10);
+
+        add_filter('izbet_style_tooltip_font_size', function () use ($options) {
+            return $options['style_tooltip_font_size'] ?? IZBET_PLUGIN_STYLE_DEFAULT_TOOLTIP_FONT_SIZE;
+        }, 10);
+
+        add_filter('izbet_style_tooltip_padding', function () use ($options) {
+            return $options['style_tooltip_padding'] ?? IZBET_PLUGIN_STYLE_DEFAULT_TOOLTIP_PADDING;
+        }, 10);
+
+        add_filter('izbet_style_tooltip_border_radius', function () use ($options) {
+            return $options['style_tooltip_border_radius'] ?? IZBET_PLUGIN_STYLE_DEFAULT_TOOLTIP_BORDER_RADIUS;
+        }, 10);
     }
 
     /**
@@ -54,6 +66,13 @@ class SettingsPage
             'izbet-settings-section-colors',
             __('Colors', 'iz-block-editor-tooltips'),
             [$this, 'izbetSettingsSectionColorsCallback'],
+            'izbet-settings'
+        );
+
+        add_settings_section(
+            'izbet-settings-section-sizes',
+            __('Sizes', 'iz-block-editor-tooltips'),
+            [$this, 'izbetSettingsSectionSizesCallback'],
             'izbet-settings'
         );
     }
@@ -79,11 +98,27 @@ class SettingsPage
     }
 
     /**
+     * Displays a top part of the section "Sizes"
+     */
+    public function izbetSettingsSectionSizesCallback(array $args): void
+    {
+        Template::instance()->render('sections/size-settings/top', $args);
+    }
+
+    /**
      * Displays a color picker field
      */
     public function renderColorField(array $args): void
     {
         Template::instance()->render('fields/color-picker', $args);
+    }
+
+    /**
+     * Displays a selector field
+     */
+    public function renderSelectorField(array $args): void
+    {
+        Template::instance()->render('fields/size-selector', $args);
     }
 
     /**
@@ -163,6 +198,66 @@ class SettingsPage
             [
                 'value' => $options['style_tooltip_background_color'] ?? IZBET_PLUGIN_STYLE_DEFAULT_TOOLTIP_BG_COLOR,
                 'label_for' => 'style_tooltip_background_color'
+            ]
+        );
+
+        add_settings_field(
+            'izbet-style-tooltip-font-size-field',
+            __('Tooltip Font Size', 'iz-block-editor-tooltips'),
+            [$this, 'renderSelectorField'],
+            'izbet-settings',
+            'izbet-settings-section-sizes',
+            [
+                'value' => $options['style_tooltip_font_size'] ?? IZBET_PLUGIN_STYLE_DEFAULT_TOOLTIP_FONT_SIZE,
+                'label_for' => 'style_tooltip_font_size',
+                'options' => [
+                    'XXS' => '.7rem',
+                    'XS' => '.8rem',
+                    'S' => '.9rem',
+                    'M' => '1rem',
+                    'L' => '1.1rem',
+                    'XL' => '1.2rem',
+                    'XXL' => '1.5rem',
+                ]
+            ]
+        );
+
+        add_settings_field(
+            'izbet-style-tooltip-padding-field',
+            __('Tooltip Padding', 'iz-block-editor-tooltips'),
+            [$this, 'renderSelectorField'],
+            'izbet-settings',
+            'izbet-settings-section-sizes',
+            [
+                'value' => $options['style_tooltip_padding'] ?? IZBET_PLUGIN_STYLE_DEFAULT_TOOLTIP_PADDING,
+                'label_for' => 'style_tooltip_padding',
+                'options' => [
+                    'XXS' => '.2rem',
+                    'XS' => '.4rem',
+                    'S' => '.6rem',
+                    'M' => '.8rem',
+                    'L' => '1rem',
+                    'XL' => '1.1rem',
+                    'XXL' => '1.3rem',
+                ]
+            ]
+        );
+
+        add_settings_field(
+            'izbet-style-tooltip-border-radius-field',
+            __('Tooltip Border Radius', 'iz-block-editor-tooltips'),
+            [$this, 'renderSelectorField'],
+            'izbet-settings',
+            'izbet-settings-section-sizes',
+            [
+                'value' => $options['style_tooltip_border_radius'] ?? IZBET_PLUGIN_STYLE_DEFAULT_TOOLTIP_BORDER_RADIUS,
+                'label_for' => 'style_tooltip_border_radius',
+                'options' => [
+                    'None' => '0',
+                    'S' => '.3rem',
+                    'M' => '.5rem',
+                    'L' => '.8rem',
+                ]
             ]
         );
     }

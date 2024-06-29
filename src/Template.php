@@ -85,6 +85,13 @@ class Template
                     'value' => true,
                     'data-alpha-enabled' => true,
                 ],
+                'select' => [
+                    'name' => true,
+                ],
+                'option' => [
+                    'value' => true,
+                    'selected' => true,
+                ],
                 'button' => [
                     'type' => true,
                     'class' => true,
