@@ -43,6 +43,18 @@ if (!defined('IZBET_PLUGIN_STYLE_DEFAULT_TOOLTIP_BG_COLOR')) {
     define('IZBET_PLUGIN_STYLE_DEFAULT_TOOLTIP_BG_COLOR', 'rgba(0, 010, 030, .85)');
 }
 
+if (!defined('IZBET_PLUGIN_STYLE_DEFAULT_TOOLTIP_FONT_SIZE')) {
+    define('IZBET_PLUGIN_STYLE_DEFAULT_TOOLTIP_FONT_SIZE', '.8rem');
+}
+
+if (!defined('IZBET_PLUGIN_STYLE_DEFAULT_TOOLTIP_PADDING')) {
+    define('IZBET_PLUGIN_STYLE_DEFAULT_TOOLTIP_PADDING', '.6rem');
+}
+
+if (!defined('IZBET_PLUGIN_STYLE_DEFAULT_TOOLTIP_BORDER_RADIUS')) {
+    define('IZBET_PLUGIN_STYLE_DEFAULT_TOOLTIP_BORDER_RADIUS', '.3rem');
+}
+
 require_once(realpath(__DIR__ . '/vendor/autoload.php'));
 
 new \Izbet\Main();

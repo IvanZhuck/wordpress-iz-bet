@@ -92,6 +92,9 @@ class Assets
                 --border-color: ' . esc_html(apply_filters('izbet_style_border_color', IZBET_PLUGIN_STYLE_DEFAULT_BORDER_COLOR)) . ';
                 --tooltip-text-color: ' . esc_html(apply_filters('izbet_style_tooltip_text_color', IZBET_PLUGIN_STYLE_DEFAULT_TOOLTIP_TEXT_COLOR)) . ';
                 --tooltip-background-color: ' . esc_html(apply_filters('izbet_style_tooltip_background_color', IZBET_PLUGIN_STYLE_DEFAULT_TOOLTIP_BG_COLOR)) . ';
+                --tooltip-font-size: ' . esc_html(apply_filters('izbet_style_tooltip_font_size', IZBET_PLUGIN_STYLE_DEFAULT_TOOLTIP_FONT_SIZE)) . ';
+                --tooltip-padding: ' . esc_html(apply_filters('izbet_style_tooltip_padding', IZBET_PLUGIN_STYLE_DEFAULT_TOOLTIP_PADDING)) . ';
+                --tooltip-border-radius: ' . esc_html(apply_filters('izbet_style_tooltip_border_radius', IZBET_PLUGIN_STYLE_DEFAULT_TOOLTIP_BORDER_RADIUS)) . ';
             }
         </style>';
     }

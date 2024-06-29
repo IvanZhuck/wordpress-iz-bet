@@ -23,9 +23,9 @@
       max-width: 250px;
       min-width: 200px;
       color: var(--tooltip-text-color);
-      font-size: .8rem;
-      padding: .6rem;
-      border-radius: 5px;
+      font-size: var(--tooltip-font-size);
+      padding: var(--tooltip-padding);
+      border-radius: var(--tooltip-border-radius);
       z-index: 100;
       white-space: pre-wrap;
 
