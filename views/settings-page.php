@@ -4,7 +4,7 @@
         <?php
             settings_fields('izbet');
             do_settings_sections('izbet-settings');
-            submit_button('Save Settings');
+            submit_button(__('Save Settings', 'iz-block-editor-tooltips'));
         ?>
     </form>
 </div>

@@ -12,10 +12,10 @@ An easy way to implement tooltip element in the WordPress Block Editor
 - You can also style tooltips with CSS and using filters:
 
 ```php
-add_filter('iz_bet_style_text_color', function() { return '#247DE0'; });
-add_filter('iz_bet_style_border_color', function() { return '#247DE0'; });
-add_filter('iz_bet_style_tooltip_text_color', function() { return '#fff'; });
-add_filter('iz_bet_style_tooltip_background_color', function() { return 'rgba(0, 010, 030, .85)'; });
+add_filter('izbet_style_text_color', function() { return '#247DE0'; });
+add_filter('izbet_style_border_color', function() { return '#247DE0'; });
+add_filter('izbet_style_tooltip_text_color', function() { return '#fff'; });
+add_filter('izbet_style_tooltip_background_color', function() { return 'rgba(0, 010, 030, .85)'; });
 add_filter('izbet_style_tooltip_font_size', function() { return '.8rem'; });
 add_filter('izbet_style_tooltip_padding', function() { return '.6rem'; });
 add_filter('izbet_style_tooltip_border_radius', function() { return '.3rem'; });
